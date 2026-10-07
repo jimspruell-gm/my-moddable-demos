@@ -1,0 +1,15 @@
+{
+	"build": {
+		"NAME": "esp-api"
+	},
+	"include": [
+		"$(MODDABLE)/examples/manifest_base.json",
+		"$(MODDABLE)/examples/manifest_net.json",
+		"$(MODDABLE)/modules/network/http/manifest.json"
+	],
+	"modules": {
+		"*": [
+			"./main"
+		]
+	}
+}
