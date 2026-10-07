@@ -7,7 +7,9 @@ if (!host) {
 	process.exit(1);
 }
 
-const url = `http://${host}:8080/status`;
+// Wrap IPv6 addresses in brackets, e.g. fe80::1 -> [fe80::1]
+const hostPart = (host.includes(":") && !host.startsWith("[")) ? `[${host}]` : host;
+const url = `http://${hostPart}:8080/status`;
 
 // Use AbortSignal.timeout when available, otherwise fall back to a manual timer
 let timer;
